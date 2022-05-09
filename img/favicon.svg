@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 75px;
+        fill: red;
+        font-family: PilGi;
+      }
+    </style>
+  </defs>
+  <text id="L" class="cls-1" x="6.607" y="52.937">L</text>
+</svg>

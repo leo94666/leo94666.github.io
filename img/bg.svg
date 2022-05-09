@@ -1,0 +1,80 @@
+<svg version="1.1" baseProfile="full" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1400 800">
+
+
+  <rect x="1300" y="400" rx="40" ry="40" width="300" height="300" stroke="rgb(129, 201, 149)" fill="rgb(129, 201, 149)">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 1450 550"
+      to="360 1450 550" repeatCount="indefinite" />
+  </rect>
+
+
+  <path d="M 100 350 A 150 150 0 1 1 400 350 Q400 370 380 370 L 250 370 L 120 370 Q100 370 100 350"
+    stroke="rgb(253, 214, 99)" fill="rgb(253, 214, 99)">
+    <animateMotion path="M 800 -200 L 800 -300 L 800 -200" dur="20s" begin="0s" repeatCount="indefinite" />
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate"
+      values="0 210 530 ; -30 210 530 ; 0 210 530" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite" />
+  </path>
+
+  <circle cx="200" cy="150" r="20" stroke="#1a73e8" fill="#1a73e8">
+    <animateMotion path="M 0 0 L 40 20 Z" dur="5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- 三角形 -->
+  <path d="M 165 580 L 270 580 Q275 578 270 570 L 223 483 Q220 480 217 483 L 165 570 Q160 578 165 580"
+    stroke="rgb(238, 103, 92)" fill="rgb(238, 103, 92)">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 210 530"
+      to="360 210 530" repeatCount="indefinite" />
+  </path>
+
+  <circle cx="1200" cy="600" r="30" stroke="rgb(241, 24, 244)" fill="rgb(241, 24, 244)">
+    <animateMotion path="M 0 0 L -20 40 Z" dur="9s" repeatCount="indefinite" />
+  </circle>
+
+
+  <path d="M 100 350 A 40 40 0 1 1 180 350 L 180 430 A 40 40 0 1 1 100 430 Z" stroke="rgb(241, 243, 244)"
+    fill="rgb(241, 243, 244)">
+    <animateMotion path="M 140 390 L 180 360 L 140 390" dur="20s" begin="0s" repeatCount="indefinite" />
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate"
+      values="0 140 390; -60 140 390; 0 140 390" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite" />
+  </path>
+
+
+  <path
+    d="M153 334 C153 334 151 334 151 334 C151 339 153 344 156 344C164 344 171 339 171 334C171 322 164 314 156 314C142 314 131 322 131 334C131 350 142 364 156 364C175 364 191 350 191 334C191 311 175 294 156 294C131 294 111 311 111 334C111 361 131 384 156 384C186 384 211 361 211 334C211 300 186 274 156 274"
+    style="fill:white;stroke:red;stroke-width:2">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 210 530"
+      to="360 210 530" repeatCount="indefinite" />
+
+  </path>
+
+
+
+
+  <path
+    d="M127.579 11.5l2.194-3.8a.465.465 0 00-.514-.629.461.461 0 00-.277.165l-2.222 3.859a13.786 13.786 0 00-11.287 0l-2.222-3.85a.464.464 0 00-.791.464l2.194 3.792a12.954 12.954 0 00-6.717 10.372H134a12.958 12.958 0 00-6.721-10.372zm-12.534 6.617a1.1 1.1 0 01-.777-1.875 1.098 1.098 0 11.777 1.875zm12.137 0a1.098 1.098 0 11-.004-2.197 1.098 1.098 0 01.004 2.197z"
+    fill="#00DE7A">
+
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="10s" type="scale" from="5" to="10"
+      repeatCount="indefinite" />
+
+  </path>
+
+
+  <path d="M200 200 l120 200 l120 -200" fill="#00DE7A" stroke="#00DE7A">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 610 530"
+      to="360 210 530" repeatCount="indefinite" />
+  </path>
+
+  <path d="M240 200 l80 120 l80 -120" fill="#2d7052" stroke="#53685e">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 610 530"
+      to="360 210 530" repeatCount="indefinite" />
+  </path>
+
+  <path d="M280 200 l40 60 l40 -60" fill="#f6faf8" stroke="#f5f8f6">
+    <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="35s" type="rotate" from="0 610 530"
+      to="360 210 530" repeatCount="indefinite" />
+  </path>
+
+
+
+</svg>

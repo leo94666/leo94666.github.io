@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Android系统源码目录结构详解 | Leo Technology Stack</title>
+    <meta name="generator" content="VuePress 1.9.7">
+    <link rel="icon" href="/img/favicon.png">
+    <script data-ad-client="ca-pub-7828333725993554" async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/icons/logo.png">
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#3eaf7c">
+    <meta name="description" content="架构师技术博客,简洁至上, 专注架构师学习与总结, 前端、后端等技术文章。">
+    <meta name="keywords" content="前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown">
+    <meta name="baidu-site-verification" content="7F55weZDDc">
+    <meta name="theme-color" content="#11a8cd">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileImage" content="/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    
+    <link rel="preload" href="/assets/css/0.styles.3bb95aac.css" as="style"><link rel="preload" href="/assets/js/app.547c0bf0.js" as="script"><link rel="preload" href="/assets/js/6.1a89cbae.js" as="script"><link rel="preload" href="/assets/js/78.6d270f46.js" as="script"><link rel="preload" href="/assets/js/8.e2c6a3e6.js" as="script"><link rel="prefetch" href="/assets/js/1.912e3d3a.js"><link rel="prefetch" href="/assets/js/10.82cdb692.js"><link rel="prefetch" href="/assets/js/100.e6df2e13.js"><link rel="prefetch" href="/assets/js/101.53d50b41.js"><link rel="prefetch" href="/assets/js/102.eeabe335.js"><link rel="prefetch" href="/assets/js/103.22c082fd.js"><link rel="prefetch" href="/assets/js/104.1ccf101d.js"><link rel="prefetch" href="/assets/js/105.a3973527.js"><link rel="prefetch" href="/assets/js/106.737c1dc3.js"><link rel="prefetch" href="/assets/js/107.e6b78f77.js"><link rel="prefetch" href="/assets/js/108.b7c7fbfb.js"><link rel="prefetch" href="/assets/js/109.1edc426f.js"><link rel="prefetch" href="/assets/js/11.f1f05bf4.js"><link rel="prefetch" href="/assets/js/110.4b78b142.js"><link rel="prefetch" href="/assets/js/111.801a106f.js"><link rel="prefetch" href="/assets/js/12.3d02dfd5.js"><link rel="prefetch" href="/assets/js/13.255dd60d.js"><link rel="prefetch" href="/assets/js/14.4cc8141e.js"><link rel="prefetch" href="/assets/js/15.77b69c82.js"><link rel="prefetch" href="/assets/js/16.7fb8fa37.js"><link rel="prefetch" href="/assets/js/17.be996721.js"><link rel="prefetch" href="/assets/js/18.7f070e4b.js"><link rel="prefetch" href="/assets/js/19.ceb71ad8.js"><link rel="prefetch" href="/assets/js/20.c3531b2c.js"><link rel="prefetch" href="/assets/js/21.3404c7fe.js"><link rel="prefetch" href="/assets/js/22.d0d9f085.js"><link rel="prefetch" href="/assets/js/23.ea73c53b.js"><link rel="prefetch" href="/assets/js/24.25b44380.js"><link rel="prefetch" href="/assets/js/25.21665fef.js"><link rel="prefetch" href="/assets/js/26.ac6e0f4f.js"><link rel="prefetch" href="/assets/js/27.b0704a94.js"><link rel="prefetch" href="/assets/js/28.6b225f49.js"><link rel="prefetch" href="/assets/js/29.d795e88d.js"><link rel="prefetch" href="/assets/js/30.d22e19e6.js"><link rel="prefetch" href="/assets/js/31.9bd609cb.js"><link rel="prefetch" href="/assets/js/32.89c0f729.js"><link rel="prefetch" href="/assets/js/33.fafb4a50.js"><link rel="prefetch" href="/assets/js/34.27f61e4b.js"><link rel="prefetch" href="/assets/js/35.bdc4c8c5.js"><link rel="prefetch" href="/assets/js/36.17e3324f.js"><link rel="prefetch" href="/assets/js/37.63a8b933.js"><link rel="prefetch" href="/assets/js/38.123fc86e.js"><link rel="prefetch" href="/assets/js/39.f5965d99.js"><link rel="prefetch" href="/assets/js/40.bfd857b2.js"><link rel="prefetch" href="/assets/js/41.8a429091.js"><link rel="prefetch" href="/assets/js/42.b9d2d685.js"><link rel="prefetch" href="/assets/js/43.5f42ec83.js"><link rel="prefetch" href="/assets/js/44.6621bc3d.js"><link rel="prefetch" href="/assets/js/45.38681ba2.js"><link rel="prefetch" href="/assets/js/46.84b74977.js"><link rel="prefetch" href="/assets/js/47.19e048b8.js"><link rel="prefetch" href="/assets/js/48.aa588943.js"><link rel="prefetch" href="/assets/js/49.48893c71.js"><link rel="prefetch" href="/assets/js/50.02ed7ee9.js"><link rel="prefetch" href="/assets/js/51.ee69d07f.js"><link rel="prefetch" href="/assets/js/52.404dc9dc.js"><link rel="prefetch" href="/assets/js/53.0c1601d3.js"><link rel="prefetch" href="/assets/js/54.972c1488.js"><link rel="prefetch" href="/assets/js/55.483ddf87.js"><link rel="prefetch" href="/assets/js/56.2d8dd133.js"><link rel="prefetch" href="/assets/js/57.8b7020b4.js"><link rel="prefetch" href="/assets/js/58.22d8d598.js"><link rel="prefetch" href="/assets/js/59.3e50fd36.js"><link rel="prefetch" href="/assets/js/60.6f3d10bf.js"><link rel="prefetch" href="/assets/js/61.18667437.js"><link rel="prefetch" href="/assets/js/62.75c34c32.js"><link rel="prefetch" href="/assets/js/63.2cb97ac4.js"><link rel="prefetch" href="/assets/js/64.eda63d4b.js"><link rel="prefetch" href="/assets/js/65.10f2fc27.js"><link rel="prefetch" href="/assets/js/66.8052e009.js"><link rel="prefetch" href="/assets/js/67.672f6155.js"><link rel="prefetch" href="/assets/js/68.dacf4f26.js"><link rel="prefetch" href="/assets/js/69.b942721f.js"><link rel="prefetch" href="/assets/js/7.956766b7.js"><link rel="prefetch" href="/assets/js/70.daa27754.js"><link rel="prefetch" href="/assets/js/71.80c17e36.js"><link rel="prefetch" href="/assets/js/72.8d85e956.js"><link rel="prefetch" href="/assets/js/73.8ae40049.js"><link rel="prefetch" href="/assets/js/74.0a72880c.js"><link rel="prefetch" href="/assets/js/75.9014353b.js"><link rel="prefetch" href="/assets/js/76.c9e8bd64.js"><link rel="prefetch" href="/assets/js/77.0c4cec8c.js"><link rel="prefetch" href="/assets/js/79.4e269ee7.js"><link rel="prefetch" href="/assets/js/80.4f18165f.js"><link rel="prefetch" href="/assets/js/81.fdf05680.js"><link rel="prefetch" href="/assets/js/82.0cb859b5.js"><link rel="prefetch" href="/assets/js/83.2d3d949f.js"><link rel="prefetch" href="/assets/js/84.1aa4e017.js"><link rel="prefetch" href="/assets/js/85.ade9b646.js"><link rel="prefetch" href="/assets/js/86.069bc62a.js"><link rel="prefetch" href="/assets/js/87.51a7429a.js"><link rel="prefetch" href="/assets/js/88.e797c959.js"><link rel="prefetch" href="/assets/js/89.5389c252.js"><link rel="prefetch" href="/assets/js/9.48caeb51.js"><link rel="prefetch" href="/assets/js/90.c581896b.js"><link rel="prefetch" href="/assets/js/91.d353de30.js"><link rel="prefetch" href="/assets/js/92.3105b496.js"><link rel="prefetch" href="/assets/js/93.416765e6.js"><link rel="prefetch" href="/assets/js/94.cb24b172.js"><link rel="prefetch" href="/assets/js/95.4f568635.js"><link rel="prefetch" href="/assets/js/96.43ea0146.js"><link rel="prefetch" href="/assets/js/97.917c1ec8.js"><link rel="prefetch" href="/assets/js/98.68621700.js"><link rel="prefetch" href="/assets/js/99.31b9c418.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.c4af4257.js"><link rel="prefetch" href="/assets/js/vendors~flowchart.558c275c.js"><link rel="prefetch" href="/assets/js/vendors~notification.578d7770.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3bb95aac.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container sidebar-open have-rightmenu"><header class="navbar blur"><div title="目录" class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/img/leo.png" alt="Leo Technology Stack" class="logo"> <span class="site-name can-hide">Leo Technology Stack</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/#Android" class="nav-link">Android</a></li><li class="dropdown-item"><!----> <a href="/front/#Web" class="nav-link">Web</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/rear/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/rear/#SpringBoot" class="nav-link">SpringBoot</a></li><li class="dropdown-item"><!----> <a href="/rear/#数据库" class="nav-link">数据库</a></li><li class="dropdown-item"><!----> <a href="/rear/#Docker" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/rear/#netty" class="nav-link">Netty</a></li><li class="dropdown-item"><!----> <a href="/rear/#KubeSphere" class="nav-link">KubeSphere</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><a href="/linux/" class="link-title">Linux</a> <span class="title" style="display:none;">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/#linux" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/linux/#Android Framework" class="nav-link">Android Framework</a></li><li class="dropdown-item"><!----> <a href="/linux/#开源库" class="nav-link">开源库</a></li></ul></div></div><div class="nav-item"><a href="/thinking/" class="nav-link">思维</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><!----> <span class="title" style="display:;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/a938d92/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/post/a/" class="nav-link">投资理财</a></li><li class="dropdown-item"><!----> <a href="/post/books/" class="nav-link">杂事记录</a></li><li class="dropdown-item"><h4>索引</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-subitem"><a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-subitem"><a href="/archives/" class="nav-link">归档</a></li></ul></li><li class="dropdown-item"><h4>开源项目</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/markdown/" class="nav-link">Advance Markdown</a></li><li class="dropdown-subitem"><a href="https://github.com/leo94666/AnLibrary" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AnLibrary
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar" style="display:none;"><div class="blogger"><img src="https://cdn.pixabay.com/photo/2021/04/22/06/40/duck-6198196_1280.jpg"> <div class="blogger-info"><h3>Leo</h3> <span>不知名的架构师</span></div></div> <nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><a href="/front/" class="link-title">前端</a> <span class="title" style="display:none;">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/front/#Android" class="nav-link">Android</a></li><li class="dropdown-item"><!----> <a href="/front/#Web" class="nav-link">Web</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><a href="/rear/" class="link-title">后端</a> <span class="title" style="display:none;">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/rear/#SpringBoot" class="nav-link">SpringBoot</a></li><li class="dropdown-item"><!----> <a href="/rear/#数据库" class="nav-link">数据库</a></li><li class="dropdown-item"><!----> <a href="/rear/#Docker" class="nav-link">Docker</a></li><li class="dropdown-item"><!----> <a href="/rear/#netty" class="nav-link">Netty</a></li><li class="dropdown-item"><!----> <a href="/rear/#KubeSphere" class="nav-link">KubeSphere</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Linux" class="dropdown-title"><a href="/linux/" class="link-title">Linux</a> <span class="title" style="display:none;">Linux</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/linux/#linux" class="nav-link">Linux</a></li><li class="dropdown-item"><!----> <a href="/linux/#Android Framework" class="nav-link">Android Framework</a></li><li class="dropdown-item"><!----> <a href="/linux/#开源库" class="nav-link">开源库</a></li></ul></div></div><div class="nav-item"><a href="/thinking/" class="nav-link">思维</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="其他" class="dropdown-title"><!----> <span class="title" style="display:;">其他</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/pages/a938d92/" class="nav-link">面试</a></li><li class="dropdown-item"><!----> <a href="/post/a/" class="nav-link">投资理财</a></li><li class="dropdown-item"><!----> <a href="/post/books/" class="nav-link">杂事记录</a></li><li class="dropdown-item"><h4>索引</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/categories/" class="nav-link">分类</a></li><li class="dropdown-subitem"><a href="/tags/" class="nav-link">标签</a></li><li class="dropdown-subitem"><a href="/archives/" class="nav-link">归档</a></li></ul></li><li class="dropdown-item"><h4>开源项目</h4> <ul class="dropdown-subitem-wrapper"><li class="dropdown-subitem"><a href="/pages/markdown/" class="nav-link">Advance Markdown</a></li><li class="dropdown-subitem"><a href="https://github.com/leo94666/AnLibrary" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  AnLibrary
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li></ul></li></ul></div></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Android系统源码目录结构详解</span> <!----></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/0302002/#android系统源码目录结构详解" class="sidebar-link">Android系统源码目录结构详解</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/0302002/#android平台四层架构对应源代码中的目录" class="sidebar-link">android平台四层架构对应源代码中的目录：</a></li></ul></li><li><a href="/pages/0302002/#详细目录结构如下" class="sidebar-link">详细目录结构如下：</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <div><main class="page"><div class="theme-leo-wrapper "><div class="articleInfo-wrap" data-v-2c5db116><div class="articleInfo" data-v-2c5db116><ul class="breadcrumbs" data-v-2c5db116><li data-v-2c5db116><a href="/" title="首页" class="iconfont icon-home router-link-active" data-v-2c5db116></a></li> <li data-v-2c5db116><a href="/categories/?category=notes" title="分类" data-v-2c5db116>notes</a></li> <li data-v-2c5db116><a href="/categories/?category=Linux" title="分类" data-v-2c5db116>Linux</a></li> <li data-v-2c5db116><a href="/categories/?category=Android%20Framework" title="分类" data-v-2c5db116>Android Framework</a></li></ul> <div class="info" data-v-2c5db116><div title="作者" class="author iconfont icon-touxiang" data-v-2c5db116><a href="https://github.com/leo94666" target="_blank" title="作者" class="beLink" data-v-2c5db116>Leo</a></div> <div title="创建时间" class="date iconfont icon-riqi" data-v-2c5db116><a href="javascript:;" data-v-2c5db116>2021-04-20</a></div> <!----></div></div></div> <!----> <div class="content-wrapper"><div class="right-menu-wrapper"><div class="right-menu-margin"><div class="right-menu-content"></div></div></div> <h1><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAABGpJREFUSA3tVVtoXFUU3fvOI53UlmCaKIFmwEhsE7QK0ipFEdHEKpXaZGrp15SINsXUWvBDpBgQRKi0+KKoFeJHfZA+ED9KKoIU2gYD9UejTW4rVIzm0VSTziPzuNu1z507dibTTjL4U/DAzLn3nL3X2o91ziX6f9wMFdh6Jvbm9nNSV0msViVO6tN1Rm7NMu2OpeJ9lWBUTDxrJbYTS0hInuwciu9eLHlFxCLCZEk3MegsJmZ5K/JD6t7FkFdEvGUo1g7qJoG3MHImqRIn8/nzY1K9UPKKiJmtnUqHVE3Gbuay6vJE/N2FEmuxFjW2nUuE0yQXRRxLiTUAzs36zhZvOXJPdX850EVnnLZkB8prodQoM5JGj7Xk2mvC7JB8tG04Ef5PiXtG0UtxupRQSfTnBoCy554x18yJHI6I+G5Eru4LHmPJZEQsrvPUbMiA8G/WgMK7w7I+ez7++o2ANfbrjvaOl1tFMs+htG3IrZH9/hDX1Pr8Tc0UvH8tcX29KzAgIGcEkINyW5BF9x891hw6VYqgJHEk0huccS7vh3C6gTiODL+26huuBtbct8eZnqLML8PkxGYpuPZBqtqwkSjgc4mB5gbgig5i+y0UDK35LMxXisn9xQtK+nd26gTIHsHe/oblK/b29fUmN/8Y+9jAQrnBp56m1LcDlDp9irKTExSKduXJVWSqdBMA08pEJnEIOB3FPPMybu/oeV8zFeYN3xx576Q6RH+VmplE4ncQV5v+5rzSoyOU7PuEAg8g803PwBJ0CExno/jcMbN8tONYeOmHiuUNryvm3fRUy4tMPVLdAGkUhNWuggGrJcXPv+ouCjz0MKUHz1J2/E8IC9nqTabcxgaBYM0hPhD5Y65FsbxRQKxCQrDjDctW7PUM3HuZunFyifSAqEfuzCp48Il24luWUWZoyJCaPR82jE0+kFA643wRFVni4RYSq3ohJO2pZ7B5dO4xkDWbEpossJPLSrPjYID8rS2UHTlvyNxqIGsg674XJJ7vnh5L7PNwC4hh2sjCI96mzszOTpxLF0T7l88Yz7lAuK6OnL8gXLOnTvpzSb22YG8W7us3jSebFHeeqnXRG1vt+MoUM84LQIBmMsCTAcOauTh0T0l0neQK7m2bLMt2mGxU3HYssS0J2cdv5wljlPsrIuZLAG/2DOZIXgCYT8uMGZN+e2kSirfxZOPCsC0f24nTZzspnVn9VePS1Z5vubmAGGXG8ZFno9Hel0yfA5ZPhF7Dh972BQJ2qCpgH67lmWtBYbvk6sz02wjky2vXyz0XErP/kFB619js1BtwfOV4OPRqOQBjy3Qbk18vigUPPSD5ceHnwck7W9bhAqZdd7SuG7w4/P2F/GaJh8c7e9qgow+Q7cGBo+98WsLkuktFqiZabtXuQTu/Y5ETbR0v7tNSFnvrmu6pjdoan2KjMu8q/Hmj1EfCO2ZGfEIbIXKUlw8qaX9/b2oeSJmFksSeT/Fn0V3nSypChh4Gjh74ybO9aeZ/AN2dwciu2/MhAAAAAElFTkSuQmCC">
+          Android系统源码目录结构详解
+        </h1> <!----> <div class="theme-leo-content content__default"><h2 id="android系统源码目录结构详解"><a href="#android系统源码目录结构详解" class="header-anchor">#</a> Android系统源码目录结构详解</h2> <h3 id="android平台四层架构对应源代码中的目录"><a href="#android平台四层架构对应源代码中的目录" class="header-anchor">#</a> android平台四层架构对应源代码中的目录：</h3> <ul><li><p>第一层：应用程序层(applications)对应根目录下packages/apps</p></li> <li><p>第二层：应用程序框架层(application framework)对应根目录下的frameworks</p></li> <li><p>第三层：运行库层包括运行库(libraries)和android运行时环境(android runtime)</p> <div class="language- extra-class"><pre><code>android运行时环境：
+
+       Core Libraries 对应根目录下的libcore
+
+       Dalvik Virtual Machine 对应根目录下的dalvik
+</code></pre></div><p>运行库libraries :</p> <div class="language- extra-class"><pre><code>    libc对应根目录下的bionic
+
+    其他的.......?
+</code></pre></div></li> <li><p>第四层：Linux内核层对应根目录下的kernel</p></li></ul> <p>三、四层中间还有个硬件抽象层(HAL)对应根目录下的hardware</p> <h2 id="详细目录结构如下"><a href="#详细目录结构如下" class="header-anchor">#</a> 详细目录结构如下：</h2> <h4 id="根目录"><a href="#根目录" class="header-anchor">#</a> 根目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+|-- Makefile
+|
+|-- bionic               （bionic C库）
+|
+|-- bootable             （启动引导相关代码）
+|
+|-- build                （存放系统编译规则及generic等基础开发包配置）
+|
+|-- cts                  （Android兼容性测试套件标准）
+|
+|-- dalvik               （dalvik JAVA虚拟机）
+|
+|-- development          （应用程序开发相关）
+|
+|-- external             （android使用的一些开源的模组）
+|
+|-- frameworks           （核心框架——java及C++语言）
+|
+|-- hardware             （部分厂家开源的硬解适配层HAL代码）
+|
+|-- out                  （编译完成后的代码输出与此目录）
+|
+|-- packages             （应用程序包）
+|
+|-- prebuilt             （x86和arm架构下预编译的一些资源）
+|
+|-- sdk                  （sdk及模拟器）
+|
+|-- system               （底层文件系统库、应用及组件——C语言）
+|
+|-- vendor               （厂商定制代码）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br></div></div><h4 id="bionic-目录"><a href="#bionic-目录" class="header-anchor">#</a> bionic 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- libc      （C库）
+|   |-- arch-arm        （ARM架构，包含系统调用汇编实现）
+|   |-- arch-x86        （x86架构，包含系统调用汇编实现）
+|   |-- bionic                （由C实现的功能，架构无关）
+|   |-- docs                （文档）
+|   |-- include                （头文件）
+|   |-- inet                （？inet相关，具体作用不明）
+|   |-- kernel                （Linux内核中的一些头文件）
+|   |-- netbsd                （？nesbsd系统相关，具体作用不明）
+|   |-- private                （？一些私有的头文件）
+|   |-- stdio                （stdio实现）
+|   |-- stdlib                （stdlib实现）
+|   |-- string                （string函数实现）
+|   |-- tools                （几个工具）
+|   |-- tzcode                （时区相关代码）
+|   |-- unistd                （unistd实现）
+|   `-- zoneinfo        （时区信息）
+|-- libdl       （libdl实现，dl是动态链接，提供访问动态链接库的功能）
+|-- libm        （libm数学库的实现，）
+|   |-- alpha                （apaha架构）
+|   |-- amd64                （amd64架构）
+|   |-- arm                （arm架构）
+|   |-- bsdsrc                （？bsd的源码）
+|   |-- i386                （i386架构）
+|   |-- i387                （i387架构？）
+|   |-- ia64                （ia64架构）
+|   |-- include                （头文件）
+|   |-- man                （数学函数，后缀名为.3，一些为freeBSD的库文件）
+|   |-- powerpc        （powerpc架构）
+|   |-- sparc64                （sparc64架构）
+|   `-- src                （源代码）
+|-- libstdc++    （libstdc++ C++实现库）
+|   |-- include                （头文件）
+|   `-- src                （源码）
+|-- libthread_db （多线程程序的调试器库）
+|   `-- include                （头文件）
+|-- linker       （动态链接器）
+`-- arch         （支持arm和x86两种架构）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div><h4 id="bootable-目录"><a href="#bootable-目录" class="header-anchor">#</a> bootable  目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+|-- bootloader     （适合各种bootloader的通用代码）
+|   `-- legacy             （估计不能直接使用，可以参考）
+|       |-- arch_armv6                （V6架构，几个简单的汇编文件）
+|       |-- arch_msm7k                （高通7k处理器架构的几个基本驱动）
+|       |-- include                   （通用头文件和高通7k架构头文件）
+|       |-- libboot                   （启动库，都写得很简单）
+|       |-- libc                      （一些常用的c函数）
+|       |-- nandwrite                 （nandwirte函数实现）
+|       `-- usbloader                 （usbloader实现）
+|-- diskinstaller  （android镜像打包器，x86可生产iso）
+`-- recovery       （系统恢复相关）
+    |-- edify                          （升级脚本使用的edify脚本语言）
+    |-- etc                            （init.rc恢复脚本）
+    |-- minui                          （一个简单的UI）
+    |-- minzip                         （一个简单的压缩工具）
+    |-- mtdutils                       （mtd工具）
+    |-- res                            （资源）
+    |   `-- images                     （一些图片）
+    |-- tools                          （工具）
+        `-- ota                        （OTA Over The Air Updates升级工具）
+`-- updater         （升级器）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br></div></div><h4 id="build-目录"><a href="#build-目录" class="header-anchor">#</a> build 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- core     （核心编译规则）
+|-- history  （历史记录）
+|-- libs                                
+|   `-- host          （主机端库，有android “cp”功能替换）
+|-- target    （目标机编译对象）
+|   |-- board          （开发平台）
+|   |   |-- emulator        （模拟器）
+|   |   |-- generic         （通用）
+|   |   |-- idea6410        （自己添加的）
+|   |   `-- sim             （最简单）
+|   `-- product             （开发平台对应的编译规则）
+|       `-- security        （密钥相关）
+`-- tools             （编译中主机使用的工具及脚本）
+    |-- acp                   （Android &quot;acp&quot; Command）
+    |-- apicheck              （api检查工具）
+    |-- applypatch            （补丁工具）
+    |-- apriori               （预链接工具）
+    |-- atree                 （tree工具）
+    |-- bin2asm               （bin转换为asm工具）
+    |-- check_prereq          （检查编译时间戳工具）
+    |-- dexpreopt             （模拟器相关工具，具体功能不明）
+    |-- droiddoc              （？作用不明，java语言，网上有人说和JDK5有关）
+    |-- fs_config             （This program takes a list of files and directories）
+    |-- fs_get_stats          （获取文件系统状态）
+    |-- iself                 （判断是否ELF格式）
+    |-- isprelinked           （判断是否prelinked）
+    |-- kcm                   （按键相关）
+    |-- lsd                   （List symbol dependencies）
+    |-- releasetools          （生成镜像的工具及脚本）
+    |-- rgb2565               （rgb转换为565）
+    |-- signapk               （apk签名工具）
+    |-- soslim                （strip工具）
+`-- zipalign        （zip archive alignment tool）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br></div></div><h4 id="cts-目录"><a href="#cts-目录" class="header-anchor">#</a> cts 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="dalvik-目录"><a href="#dalvik-目录" class="header-anchor">#</a> dalvik 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- dalvikvm          （main.c的目录）
+|-- dexdump           （dex反汇编）
+|-- dexlist           （List all methods in all concrete classes in a DEX file.）
+|-- dexopt            （预验证与优化）
+|-- docs              （文档）
+|-- dvz               （和zygote相关的一个命令）
+|-- dx                （dx工具，将多个java转换为dex）
+|-- hit               （？java语言写成）
+|-- libcore             （核心库）
+|-- libcore-disabled    （？禁用的库）
+|-- libdex              （dex的库）
+|-- libnativehelper     （Support functions for Android's class libraries）
+|-- tests               （测试代码）
+|-- tools               （工具）
+`-- vm                  （虚拟机实现）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h4 id="development-目录"><a href="#development-目录" class="header-anchor">#</a> development 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- apps               （一些核心应用程序）
+|   |-- BluetoothDebug        （蓝牙调试程序）
+|   |-- CustomLocale          （自定义区域设置）
+|   |-- Development           （开发）
+|   |-- Fallback              （和语言相关的一个程序）
+|   |-- FontLab               （字库）
+|   |-- GestureBuilder        （手势动作）
+|   |-- NinePatchLab           （？）
+|   |-- OBJViewer             （OBJ查看器）
+|   |-- SdkSetup              （SDK安装器）
+|   |-- SpareParts            （高级设置）
+|   |-- Term                  （远程登录）
+|   `-- launchperf                （？）
+|-- build               （编译脚本模板）
+|-- cmds                （有个monkey工具）
+|-- data                （配置数据）
+|-- docs                （文档）
+|-- host                （主机端USB驱动等）
+|-- ide                 （集成开发环境）
+|-- ndk                  （本地开发套件——c语言开发套件）
+|-- pdk                  （Plug Development Kit）
+|-- samples              （例程）
+|   |-- AliasActivity            （？）
+|   |-- ApiDemos                 （API演示程序）
+|   |-- BluetoothChat            （蓝牙聊天）
+|   |-- BrowserPlugin            （浏览器插件）
+|   |-- BusinessCard             （商业卡）
+|   |-- Compass                  （指南针）
+|   |-- ContactManager           （联系人管理器）
+|   |-- CubeLiveWallpaper        （动态壁纸的一个简单例程）
+|   |-- FixedGridLayout          （像是布局）
+|   |-- GlobalTime                （全球时间）
+|   |-- HelloActivity            （Hello）
+|   |-- Home                      （Home）
+|   |-- JetBoy                   （jetBoy游戏）
+|   |-- LunarLander             （貌似又是一个游戏）
+|   |-- MailSync                 （邮件同步）
+|   |-- MultiResolution          （多分辨率）
+|   |-- MySampleRss             （RSS）
+|   |-- NotePad                 （记事本）
+|   |-- RSSReader                （RSS阅读器）
+|   |-- SearchableDictionary     （目录搜索）
+|   |-- SimpleJNI                （JNI例程）
+|   |-- SkeletonApp             （空壳APP）
+|   |-- Snake                   （snake程序）
+|   |-- SoftKeyboard            （软键盘）
+|   |-- Wiktionary              （？维基）
+|   `-- WiktionarySimple         （？维基例程）
+|-- scripts                （脚本）
+|-- sdk                    （sdk配置）
+|-- simulator              （？模拟器）
+|-- testrunner             （？测试用）
+`-- tools                  （一些工具）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br></div></div><h4 id="external-目录"><a href="#external-目录" class="header-anchor">#</a> external 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- aes                        （AES加密）
+|-- apache-http                （网页服务器）
+|-- astl                        （ASTL (Android STL) is a slimmed-down version of the regular C++ STL.）
+|-- bison                        （自动生成语法分析器，将无关文法转换成C、C++）
+|-- blktrace                （blktrace is a block layer IO tracing mechanism）
+|-- bluetooth                （蓝牙相关、协议栈）
+|-- bsdiff                        （diff工具）
+|-- bzip2                        （压缩工具）
+|-- clearsilver                （html模板系统）
+|-- dbus                        （低延时、低开销、高可用性的IPC机制）
+|-- dhcpcd                （DHCP服务）
+|-- dosfstools                （DOS文件系统工具）
+|-- dropbear                （SSH2的server）
+|-- e2fsprogs                （EXT2文件系统工具）
+|-- elfcopy                （复制ELF的工具）
+|-- elfutils                        （ELF工具）
+|-- embunit                （Embedded Unit Project）
+|-- emma                        （java代码覆盖率统计工具）
+|-- esd                        （Enlightened Sound Daemon，将多种音频流混合在一个设备上播放）
+|-- expat                        （Expat is a stream-oriented XML parser.）
+|-- fdlibm                        （FDLIBM (Freely Distributable LIBM)）
+|-- freetype                （字体）
+|-- fsck_msdos                （dos文件系统检查工具）
+|-- gdata                        （google的无线数据相关）
+|-- genext2fs                （genext2fs generates an ext2 filesystem as a normal (non-root) user）
+|-- giflib                        （gif库）
+|-- googleclient        （google用户库）
+|-- grub                        （This is GNU GRUB, the GRand Unified Bootloader.）
+|-- gtest                        （Google C++ Testing Framework）
+|-- icu4c                        （ICU(International Component for Unicode)在C/C++下的版本）
+|-- ipsec-tools                （This package provides a way to use the native IPsec functionality ）
+|-- iptables                （防火墙）
+|-- jdiff                        （generate a report describing the difference between two public Java APIs.）
+|-- jhead                        （jpeg头部信息工具）
+|-- jpeg                        （jpeg库）
+|-- junit                        （JUnit是一个Java语言的单元测试框架）
+|-- kernel-headers        （内核的一些头文件）
+|-- libffi                        （libffi is a foreign function interface library.）
+|-- libpcap                （网络数据包捕获函数）
+|-- libpng                        （png库）
+|-- libxml2                （xml解析库）
+|-- mtpd                        （一个命令）
+|-- netcat                        （simple Unix utility which reads and writes dataacross network connections）
+|-- netperf                        （网络性能测量工具）
+|-- neven                        （看代码和JNI相关）
+|-- opencore                （多媒体框架）
+|-- openssl                （SSL加密相关）
+|-- openvpn                （VPN开源库）
+|-- oprofile                （OProfile是Linux内核支持的一种性能分析机制。）
+|-- ping                        （ping命令）
+|-- ppp                        （pppd拨号命令，好像还没有chat）
+|-- proguard                （Java class file shrinker, optimizer, obfuscator, and preverifier）
+|-- protobuf                （a flexible, efficient, automated mechanism for serializing structured data）
+|-- qemu                        （arm模拟器）
+|-- safe-iop                （functions for performing safe integer operations ）
+|-- skia                        （skia图形引擎）
+|-- sonivox                （sole MIDI solution for Google Android Mobile Phone Platform）
+|-- speex                        （Speex编/解码API的使用(libspeex)）
+|-- sqlite                        （数据库）
+|-- srec                        （Nuance 公司提供的开源连续非特定人语音识别）
+|-- strace                        （trace工具）
+|-- svox                        （Embedded Text-to-Speech）
+|-- tagsoup                （TagSoup是一个Java开发符合SAX的HTML解析器）
+|-- tcpdump                （抓TCP包的软件）
+|-- tesseract                （Tesseract Open Source OCR Engine.）
+|-- tinyxml                （TinyXml is a simple, small, C++ XML parser）
+|-- tremor                        （I stream and file decoder provides an embeddable,integer-only library）
+|-- webkit                        （浏览器核心）
+|-- wpa_supplicant        （无线网卡管理）
+|-- xmlwriter                （XML 编辑工具）
+|-- yaffs2                        （yaffs文件系统）
+`-- zlib                        （a general purpose data compression library）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br></div></div><h4 id="frameworks-目录"><a href="#frameworks-目录" class="header-anchor">#</a> frameworks 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|--av(多媒体)
+|   |--camera(多媒体的相关部分)
+|   |--cmds(命令源码)
+|   |--drm(数据保护)
+|   |--include(头文件)
+|   |--media(多媒体部分)
+|   |--radio(无线射频部分)
+|   |--services(服务部分)
+|   |--soundtrigger(语音识别架构)
+|   |--tools(工具包)
+|-- base    
+|   |-- apct-tests(性能优化测试)
+|   |-- api                （java的api接口，修改了接口文件请及时更新此目录下的文件（make update-api））
+|   |-- cmds(重要的命令：am、app_proc等源码)
+|   |-- core(framework层核心库)
+|   |   |--java(java库)
+|   |   |--jni(jni层)
+|   |   |--prote(协议层)
+|   |   |--res(资源文件)
+|   |   |--tests(测试工具)
+|   |-- data                （字体和声音等数据文件）
+|   |-- docs                （文档）
+|   |-- drm(数据保护)
+|   |-- graphics(图形相关)
+|   |-- keystore(和数据签名证书相关)
+|   |-- legacy-test(安全相关测试)
+|   |-- libs                （库）
+|   |   |--androidfw(fw功能库)
+|   |   |--common_time(常用功能和工具集合，缓存，包括图片缓存、预取缓存、网络缓存、公共View，即功能封装好的部件，包括下拉获得和上拉加载更多ListView、底部加载更多ScrollView、滑动一页Gallery等；常用工具类，包括网络、下载、资源操作、Shell、文件读写、Json、序列化/反序列化、随机数、集合、APK包等等)
+|   |   |--hwui (硬件渲染库)
+|   |   |--incident(事件驱动机制库)
+|   |   |--input(输入库)
+|   |   |--services(服务库)
+|   |   |--存储库
+|   |   |--usb(usb库)
+|   |-- location        （地区库）
+|   |-- media                （媒体相关库）
+|   |-- native(native框架)
+|   |-- nfc-extras(nfc额外框架)
+|   |-- obex                （蓝牙传输库）
+|   |-- opengl                （2D-3D加速库）
+|   |-- packages        （设置、TTS、VPN程序）
+|   |-- proto   (协议框架)
+|   |-- rs      (资源框架)
+|   |-- sample  (例子程序)
+|   |-- sax     (xml解析器)
+|   |-- services    (各种服务程序)
+|   |-- telecomm    (Telecom通信框架)
+|   |-- telephony   (电话通信框架)
+|   |-- test-runner (测试工具相关)
+|   |-- tests                （各种测试）
+|   |-- tools                （一些叫不上名的工具）
+|   |-- vr                  (虚拟现实相关)
+|   `-- wifi                （无线网络）
+|
+|--compile (编译相关)
+|   |-- libbcc (用于Linux性能监视的动态跟踪工具的库)
+|   |   |-- bcinfo(获取硬件设备信息)
+|   |   |-- gdb_plugin(gdb插件)
+|   |   |-- include（头文件）
+|   |   |-- lib（库文件）
+|   |-- mclinker (MCLinker链接器)
+|   |   |-- include(头文件)
+|   |   |-- lib(库文件)
+|   |   |-- templates(模板)
+|   |   |-- tools(工具)
+|   |   |-- unittests(单元测试工具)
+|   |-- slang（异常框架）
+|
+|--data-binding
+|
+|--ex（ex文件解析器）
+|   |-- camera2 （相机相关）
+|   |-- common //共有的
+|   |-- framesequence（GIF图片工具包）
+|   |-- photoviewer(图片预览)
+|   |-- widget(小部件)
+|--hardware
+|
+|--layoutlib
+|
+|--minikin(Android原生字体，连体字效果)
+|
+|--ml
+|
+|--multidex
+|
+|--native
+|
+|
+|-- opt                        （可选部分）
+|   |-- com.google.android                                （有个framework.jar）
+|   |-- com.google.android.googlelogin                （有个client.jar）
+|   `-- emoji                （standard message elements）
+|
+|--rs
+|
+|--support
+|
+|--webview
+|
+|--wihelm
+
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br></div></div><h4 id="hardware-目录"><a href="#hardware-目录" class="header-anchor">#</a> hardware 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- broadcom                        （博通公司）
+|   `-- wlan                        （无线网卡）
+|-- libhardware                        （硬件库）
+|   |-- include                        （头文件）
+|   `-- modules                （Default (and possibly architecture dependents) HAL modules）
+|       |-- gralloc                （gralloc显示相关）
+|       `-- overlay                （Skeleton for the &quot;overlay&quot; HAL module.）
+|-- libhardware_legacy        （旧的硬件库）
+|   |-- flashlight                （背光）
+|   |-- gps                        （GPS）
+|   |-- include                        （头文件）
+|   |-- mount                        （旧的挂载器）
+|   |-- power                        （电源）
+|   |-- qemu                        （模拟器）
+|   |-- qemu_tracing        （模拟器跟踪）
+|   |-- tests                        （测试）
+|   |-- uevent                        （uevent）
+|   |-- vibrator                        （震动）
+|   `-- wifi                        （无线）
+|-- msm7k                        （高通7k处理器开源抽象层）
+|   |-- boot                        （启动）
+|   |-- libaudio                （声音库）
+|   |-- libaudio-qsd8k        （qsd8k的声音相关库）
+|   |-- libcamera                （摄像头库）
+|   |-- libcopybit                （copybit库）
+|   |-- libgralloc                （gralloc库）
+|   |-- libgralloc-qsd8k        （qsd8k的gralloc库）
+|   |-- liblights                （背光库）
+|   `-- librpc                        （RPC库）
+|-- ril                                （无线电抽象层）
+|   |-- include                        （头文件）
+|   |-- libril                        （库）
+|   |-- reference-cdma-sms        （cdma短信参考）
+|   |-- reference-ril                        （ril参考）
+|   `-- rild                                （ril后台服务程序）
+`-- ti                                                （ti公司开源HAL）
+    |-- omap3                                （omap3处理器）
+    |   |-- dspbridge                （DSP桥）
+    |   |-- libopencorehw        （opencore硬件库）
+    |   |-- liboverlay                （overlay硬件库）
+    |   |-- libstagefrighthw        （stagefright硬件库）
+    |   `-- omx                        （omx组件）
+    `-- wlan                                （无线网卡）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br></div></div><h4 id="out-目录"><a href="#out-目录" class="header-anchor">#</a> out 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="packages-目录"><a href="#packages-目录" class="header-anchor">#</a> packages 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- apps                                （应用程序库）
+|   |-- AlarmClock                （闹钟）
+|   |-- Bluetooth                （蓝牙）
+|   |-- Browser                （浏览器）
+|   |-- Calculator                （计算器）
+|   |-- Calendar                （日历）
+|   |-- Camera                 （相机）
+|   |-- CertInstaller                （在Android中安装数字签名，被调用）
+|   |-- Contacts                （拨号(调用)、联系人、通话记录）
+|   |-- DeskClock                （桌面时钟）
+|   |-- Email                        （Email）
+|   |-- Gallery                        （相册，和Camera类似，多了列表）
+|   |-- Gallery3D                （？3D相册）
+|   |-- GlobalSearch        （为google搜索服务，提供底层应用）
+|   |-- GoogleSearch        （google搜索）
+|   |-- HTMLViewer        （浏览器附属界面，被浏览器应用调用，同时提供存储记录功能）
+|   |-- IM                        （即时通讯，为手机提供信号发送、接收、通信的服务）
+|   |-- Launcher                （登陆启动项，显示图片框架等等图形界面）
+|   |-- Launcher2                （登陆启动项，负责应用的调用）
+|   |-- Mms                        （？彩信业务）
+|   |-- Music                        （音乐播放器）
+|   |-- PackageInstaller        （安装、卸载程序的响应）
+|   |-- Phone                        （电话拨号程序）
+|   |-- Provision                （预设应用的状态，使能应用）
+|   |-- Settings                （开机设定，包括电量、蓝牙、设备信息、界面、wifi等）
+|   |-- SoundRecorder        （录音机，可计算存储所需空间和时间）
+|   |-- Stk                         （接收和发送短信）
+|   |-- Sync                        （空）   -------○1
+|   |-- Updater                （空）
+|   `-- VoiceDialer                （语音识别通话）
+|-- inputmethods                （输入法）
+|   |-- LatinIME                （拉丁文输入法）
+|   |-- OpenWnn                （OpenWnn输入法）
+|   `-- PinyinIME                （拼音输入法）
+|-- providers                        （提供器，提供应用程序、界面所需的数据）
+|   |-- ApplicationsProvider                （应用程序提供器，提供应用程序启动项、更新等）
+|   |-- CalendarProvider                        （日历提供器）
+|   |-- ContactsProvider                        （联系人提供器）
+|   |-- DownloadProvider                （下载管理提供器）
+|   |-- DrmProvider                        （创建和更新数据库时调用）
+|   |-- GoogleContactsProvider        （联系人提供器的子类，用以同步联系人）
+|   |-- GoogleSubscribedFeedsProvider（设置信息提供器）
+|   |-- ImProvider                                （空）
+|   |-- ManagementProvider                （空）
+|   |-- MediaProvider                        （媒体提供器，提供存储数据）
+|   |-- TelephonyProvider                （彩信提供器）
+|   |-- UserDictionaryProvider        （用户字典提供器，提供用户常用字字典）
+|   `-- WebSearchProvider                （空）
+|-- services                                        
+|   |-- EasService                                （空）
+|   `-- LockAndWipe                        （空）
+`-- wallpapers                                        （墙纸）
+    |-- Basic                                        （基本墙纸，系统内置墙纸）
+    |-- LivePicker                                （选择动态壁纸）
+    |-- MagicSmoke                        （壁纸特殊效果）
+    `-- MusicVisualization                （音乐可视化，图形随音乐而变化）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br></div></div><h4 id="out-目录-2"><a href="#out-目录-2" class="header-anchor">#</a> out 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="prebuilt-目录"><a href="#prebuilt-目录" class="header-anchor">#</a> prebuilt 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- android-arm                （arm-android相关）
+|   |-- gdbserver                （gdb调试器）
+### Frameworks目录详解
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br></div></div><p>frameworks--|<br>
+|<br>
+|</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- common                        （通用编译好的代码，应该是java的）
+|-- darwin-x86                        （drawin x86平台）
+|   `-- toolchain                （工具链）
+|       |-- arm-eabi-4.2.1        
+|       |-- arm-eabi-4.3.1        
+|       `-- arm-eabi-4.4.0        
+|-- darwin-x86_64                （drawin x86 64bit平台）
+|-- linux-x86                        （linux x86平台）
+|   `-- toolchain                （工具链，我们应该主要用这个）
+|       |-- arm-eabi-4.2.1        
+|       |-- arm-eabi-4.3.1        
+|       |-- arm-eabi-4.4.0        
+|       `-- i686-unknown-linux-gnu-4.2.1        （x86版编译器）
+|-- linux-x86_64                （linux x86 64bit平台）
+|-- windows                        （windows平台）
+`-- windows-x86_64        （64bit windows平台）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br></div></div><h4 id="sdk-目录"><a href="#sdk-目录" class="header-anchor">#</a> sdk 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="system-目录"><a href="#system-目录" class="header-anchor">#</a> system 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- Bluetooth                （蓝牙相关）
+|-- core                        （系统核心工具盒接口）
+|   |-- adb                （adb调试工具）
+|   |-- cpio                （cpio工具，创建img）
+|   |-- debuggerd        （调试工具）
+|   |-- fastboot        （快速启动相关）
+|   |-- include                （系统接口头文件）
+|   |-- init                （init程序源代码）
+|   |-- libacc                （轻量级C编译器）
+|   |-- libctest                （libc测试相关）
+|   |-- libcutils        （libc工具）
+|   |-- liblog                （log库）
+|   |-- libmincrypt        （加密库）
+|   |-- libnetutils        （网络工具库）
+|   |-- libpixelflinger        （图形处理库）
+|   |-- libsysutils        （系统工具库）
+|   |-- libzipfile        （zip库）
+|   |-- logcat                （查看log工具）
+|   |-- logwrapper        （log封装工具）
+|   |-- mkbootimg        （制作启动boot.img的工具盒脚本）
+|   |-- netcfg                （网络配置netcfg源码）
+|   |-- nexus                （google最新手机的代码）
+|   |-- rootdir                （rootfs，包含一些etc下的脚本和配置）
+|   |-- sh                        （shell代码）
+|   |-- toolbox                （toolbox，类似busybox的工具集）
+|   `-- vold                （SD卡管理器）
+|-- extras                        （额外工具）
+|   |-- latencytop        （a tool for software developers ，identifying system latency happen）
+|   |-- libpagemap        （pagemap库）
+|   |-- librank                （Java Library Ranking System库）
+|   |-- procmem        （pagemap相关）
+|   |-- procrank        （Java Library Ranking System相关）
+|   |-- showmap        （showmap工具）
+|   |-- showslab        （showslab工具）
+|   |-- sound                （声音相关）
+|   |-- su                        （su命令源码）
+|   |-- tests                （一些测试工具）
+|   `-- timeinfo        （时区相关）
+`-- wlan                        （无线相关）
+### Frameworks目录详解
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><p>frameworks--|<br>
+|<br>
+|</p> <div class="language- line-numbers-mode"><pre class="language-text"><code>    `-- ti                        （ti网卡相关工具及库）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br></div></div><h4 id="vendor-目录"><a href="#vendor-目录" class="header-anchor">#</a> vendor 目录</h4> <div class="language- line-numbers-mode"><pre class="language-text"><code>|-- aosp                                （android open source project）
+|   `-- products                （一些板级规则）
+|-- htc                                （HTC公司）
+|   |-- common-open        （通用部分）
+|   |   `-- akmd                （解压img用的工具）
+|   |-- dream-open                （G1开放部分）
+|   |-- prebuilt-open        （预编译开放部分）
+|   `-- sapphire-open        （sapphire这款型号开放内容）
+|-- pv-open                        （没东西）
+|-- qcom                                （里面基本是空的）
+`-- sample                        （google提供的样例）
+    |-- apps                        （应用）
+    |   |-- client                （用户）
+    |   `-- upgrade        （升级）
+    |-- frameworks                （框架）
+    |   `-- PlatformLibrary        （平台库）
+    |-- products                （产品）
+    |-- sdk_addon                （sdk添加部分）
+    `-- skins                        （皮肤）
+        `-- WVGAMedDpi        （WVGA适用的图片）
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br></div></div></div></div> <!----> <div class="page-edit"><div class="edit-link"><a href="https://github.com/leo94666/leo94666.github.io/edit/master/docs/notes/03.Linux/02.Android Framework/002.Android系统源码目录结构详解.md" target="_blank" rel="noopener noreferrer">编辑此页</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2022-04-28, 11:21:32</span></div></div> <div class="page-nav-wapper"><!----> <!----></div></div></main></div> <div class="footer"><div class="icons"><a href="mailto:719947897@qq.com" title="发邮件" target="_blank" class="iconfont icon-email"></a><a href="https://github.com/leo94666" title="客官，给个Star吧，≥Ö‿Ö≤" target="_blank" class="iconfont icon-github"></a></div> 
+  Theme by
+  <a href="https://github.com/leo94666" target="_blank" title="本站主题">Leo</a> 
+    | Copyright © 2016-2022
+    <span>Leo | <a href="https://github.com/leo94666/leo94666.github.io/blob/master/LICENSE" target="_blank">MIT License</a></span></div> <div class="buttons"><div title="返回顶部" class="button blur go-to-top iconfont icon-back-to-top" style="display:none;"></div> <div title="赏" class="button blur shang iconfont icon-shang"></div> <div title="去评论" class="button blur go-to-comment iconfont icon-comment" style="display:none;"></div> <div title="主题模式" class="button blur theme-mode-but iconfont icon-theme"><ul class="select-box" style="display:none;"><li class="iconfont icon-auto">
+          跟随系统
+        </li><li class="iconfont icon-light">
+          浅色模式
+        </li><li class="iconfont icon-dark">
+          深色模式
+        </li><li class="iconfont icon-read">
+          阅读模式
+        </li></ul></div></div> <!----> <!----> <!----></div><div class="global-ui"><div></div><div class="el-dialog__wrapper" style="display:none;" data-v-2068c05d data-v-2068c05d><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog el-dialog--center" style="margin-top:35vh;width:0px;"><div class="el-dialog__header"><span class="el-dialog__title"></span><button type="button" aria-label="Close" class="el-dialog__headerbtn"><i class="el-dialog__close el-icon el-icon-close"></i></button></div><!----><!----></div></div><!----></div></div>
+    <script src="/assets/js/app.547c0bf0.js" defer></script><script src="/assets/js/6.1a89cbae.js" defer></script><script src="/assets/js/78.6d270f46.js" defer></script><script src="/assets/js/8.e2c6a3e6.js" defer></script>
+  </body>
+</html>
